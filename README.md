@@ -1,40 +1,34 @@
+---
+tags: refactoring, separation or concerns, DRY, intermediate
+language: ruby
+resources: 1
+---
+
 # Rails Refactoring
 
-## Description
+As we develop our programming skills, it's important not only to have our code working, but for it to be well designed. Refactoring is a process that should become a part of the way you write code, much like revision and editing while you write. As you become a better developer, you should be incorporating refactoring patterns into your design before you build, instead of just "editing" your code.
 
-Add a short description of your app.
+In this lab we're going to focus on refactoring Github API calls for a simple app that fetches repositories and issues within an organization. API calls will be made with the [Typhoeus gem](https://github.com/typhoeus/typhoeus). 
 
-## Screenshots
+## Todo:
 
-Add some spiffy screenshots of your app here.
+* register this app on Github and install Figaro to handle the API id and secret keys; this app uses Omniauth with Github
+* Start up the server and play around with the app, which is currently fully functioning
+* We're going to focus on refactoring the code in the GithubConnection class, which handles making get requests
+* Read through this Readme and the resources
 
-## Background
+## Methodology
 
-Why did you want to make this app? What was your development process
-like?
+There are two things we're going to focus on when we refactor this code: DRY and Seperation of Concerns.
 
-## Features
+### Don't Repeat Yourself
 
-Bullet point some of the key features of your app here.
+Pretty straighforward. Further abstract to avoid repetition. If you have a few methods that accomplish something similar, consolidate. If you have a few classes that share functionality, abtract it into a module. Accept arguments to account for variability. This will help if you need to make changes: you only need to implement the change in one place instead of many.
 
-## Usage
+### Separation of Concerns
 
-How do users use your app?
+Methods, and to some extent classes, should focus on doing one thing. Build smaller methods and build many of them. Treat them as helper methods. Call these helper methods within other methods. This makes for a better organized codebase that will be easier to change as your application grows.
 
-## Development/Contribution
+## Resources
 
-Explain how people can contribute to your app. How should they write tests?
-Any things in particular you'd like to see in pull requests?
-
-## Future
-
-What features are you currently working on? Only mention things that you
-actually are implementing. No pie-in-the-sky-never-gonna-happen stuff.
-
-## Author
-
-Link to your blog, twitter, etc!
-
-## License
-
-Rails Refactoring is MIT Licensed. See LICENSE for details.
+* [RailConf 2014: All the Small Things by Sandi Metz](https://www.youtube.com/watch?v=8bZh5LMaSmE)

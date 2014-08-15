@@ -57,3 +57,8 @@ group :production do
 end
 
 gem "bootstrap-sass", "~> 3.1.1"
+
+gem 'figaro'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'typhoeus'

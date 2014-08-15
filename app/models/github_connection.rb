@@ -6,6 +6,7 @@ class GithubConnection
     @token = github_data["token"]
   end
 
+  # GET request to get user's organizations; method called on instance in the organizations controller
   def get_organizations
     request = Typhoeus::Request.new(
       "https://api.github.com/user/orgs",
@@ -17,6 +18,7 @@ class GithubConnection
     end
   end
 
+  # GET request to get all of an organization's repos; method called on instance in the organizations controller
   def get_repos(organization)
     request = Typhoeus::Request.new(
       "https://api.github.com/orgs/#{organization}/repos",
@@ -28,6 +30,7 @@ class GithubConnection
     end
   end
 
+  # GET request to get all of a repos issues; method called on instance in the repos controller
   def get_issues(organization, repo)
     request = Typhoeus::Request.new(
       "https://api.github.com/repos/#{organization}/#{repo}/issues",

@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
 
   def create
     set_session_data
-
     if session['github'][:token]
       redirect_to organizations_path
     end

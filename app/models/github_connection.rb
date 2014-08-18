@@ -1,9 +1,9 @@
 class GithubConnection
   attr_reader :username, :token, :orgs, :repos, :issues
   
-  def initialize(github_data)
-    @username = github_data["username"]
-    @token = github_data["token"]
+  def initialize(auth_data)
+    @username = auth_data["username"]
+    @token = auth_data["token"]
   end
 
   # GET request to get user's organizations; method called on instance in the organizations controller

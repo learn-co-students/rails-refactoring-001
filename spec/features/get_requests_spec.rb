@@ -3,12 +3,17 @@ describe 'making get requests', :type => :feature do
   let!(:auth) { OmniAuth.config.mock_auth[:github_user] }
 
   before do
-    visit '/auth/github'
+    page.set_rack_session("github" => {
+      :uid => auth["uid"], 
+      :username => auth["info"]["nickname"], 
+      :email => auth["info"]["email"], 
+      :token => auth["credentials"]["token"]
+    })
     visit '/organizations'
   end
 
   context 'organizations' do 
-    xit 'shows user organizations' do 
+    it 'shows user organizations' do 
       expect(page).to have_content('flatiron-school')
     end
   end
@@ -18,7 +23,7 @@ describe 'making get requests', :type => :feature do
       click_link 'flatiron-school'
     end 
 
-    xit 'shows an organization repos' do 
+    it 'shows an organization repos' do 
       expect(page).to have_content('flatiron-rails')
     end
   end
@@ -29,7 +34,7 @@ describe 'making get requests', :type => :feature do
       click_link 'flatiron-rails'
     end
     
-    xit 'shows a repo list of issues' do 
+    it 'shows a repo list of issues' do 
       expect(page).to have_content('Issue: Update to Rails 4.1.0')
     end
   end

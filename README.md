@@ -1,5 +1,5 @@
 ---
-tags: refactoring, separation or concerns, DRY, intermediate
+tags: rails, refactoring, separation or concerns, DRY, intermediate
 language: ruby
 resources: 1
 ---

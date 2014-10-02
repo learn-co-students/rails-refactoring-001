@@ -37,3 +37,4 @@ In our GithubConnection class, we have three methods that are basically doing th
 ## Resources
 
 * [RailConf 2014: All the Small Things by Sandi Metz](https://www.youtube.com/watch?v=8bZh5LMaSmE)
+

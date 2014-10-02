@@ -1,44 +1,32 @@
 class GithubConnection
-  attr_reader :username, :token, :orgs, :repos, :issues
-  
-  def initialize(auth_data)
-    @username = auth_data["username"]
-    @token = auth_data["token"]
+  attr_reader :orgs, :repos, :issues, :username, :token
+
+  def initialize(github_data)
+    @username = github_data["username"]
+    @token = github_data["token"]
   end
 
-  # GET request to get user's organizations; method called on instance in the organizations controller
   def get_organizations
-    request = Typhoeus::Request.new(
-      "https://api.github.com/user/orgs",
-      headers: {Authorization: "token #{token}"}
-    )
-    response = request.run
-    orgs = JSON.parse(response.body).map do |org| 
-      org["login"]
-    end
+    orgs = json_parse("https://api.github.com/user/orgs", "login")
   end
 
-  # GET request to get all of an organization's repos; method called on instance in the organizations controller
   def get_repos(organization)
-    request = Typhoeus::Request.new(
-      "https://api.github.com/orgs/#{organization}/repos",
-      headers: {Authorization: "token #{token}"}
-      )
+    repos = json_parse("https://api.github.com/orgs/#{organization}/repos", "name")
+  end
+
+  def get_issues(organization, repo)
+    issues = json_parse("https://api.github.com/repos/#{organization}/#{repo}/issues")
+  end
+
+  def make_request(url, header)
+    request = Typhoeus::Request.new(url, header)
     response = request.run
-    repos = JSON.parse(response.body).map do |repo|
-      repo["name"]
+  end
+
+  def json_parse(url, key = nil)
+    JSON.parse(make_request(url, headers: {Authorization: "token #{token}"}).body).map do |to_parse| 
+      key ? to_parse[key] : to_parse
     end
   end
 
-  # GET request to get all of a repos issues; method called on instance in the repos controller
-  def get_issues(organization, repo)
-    request = Typhoeus::Request.new(
-      "https://api.github.com/repos/#{organization}/#{repo}/issues",
-      headers: {Authorization: "token #{token}"}
-      )
-    response = request.run
-    repos = JSON.parse(response.body).map do |issue|
-      issue
-    end
-  end
 end

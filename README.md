@@ -16,7 +16,6 @@ In this lab we're going to focus on refactoring Github API calls for a simple ap
 * Start up the server and play around with the app, which is currently fully functioning
 * We're going to focus on refactoring the code in the GithubConnection class, which handles making get requests.
 * Read through this Readme and the resources
-* There are a few tests that are passing with the current code; make sure your refactor code also passes the tests.
 
 ## Methodology
 
@@ -37,4 +36,3 @@ In our GithubConnection class, we have three methods that are basically doing th
 ## Resources
 
 * [RailConf 2014: All the Small Things by Sandi Metz](https://www.youtube.com/watch?v=8bZh5LMaSmE)
-

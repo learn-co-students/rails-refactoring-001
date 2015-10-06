@@ -1,6 +1,6 @@
 describe 'user log in with omniauth', :type => :feature do
 
-  let!(:auth) { OmniAuth.config.mock_auth[:github_user] }
+  let!(:auth) { OmniAuth.config.mock_auth[:github] }
 
   before do
     page.set_rack_session("github" => {
@@ -18,7 +18,7 @@ describe 'user log in with omniauth', :type => :feature do
     end
 
     it 'can stay logged in, keeping session' do 
-      click_link 'flatiron-school-students'
+      click_link 'learn-co-students'
       expect(page.get_rack_session_key('github')["uid"]).to_not eq(nil)
     end
   end

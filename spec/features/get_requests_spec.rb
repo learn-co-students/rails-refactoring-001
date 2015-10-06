@@ -1,6 +1,6 @@
 describe 'making get requests', :type => :feature do
 
-  let!(:auth) { OmniAuth.config.mock_auth[:github_user] }
+  let!(:auth) { OmniAuth.config.mock_auth[:github] }
 
   before do
     page.set_rack_session("github" => {

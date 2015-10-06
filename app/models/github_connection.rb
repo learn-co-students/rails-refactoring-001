@@ -8,6 +8,7 @@ class GithubConnection
 
   # GET request to get user's organizations; method called on instance in the organizations controller
   def get_organizations
+    # binding.pry
     request = Typhoeus::Request.new(
       "https://api.github.com/user/orgs",
       headers: {Authorization: "token #{token}"}

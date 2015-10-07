@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
       Authorization:
-      - token e1cf5a63ca1f13d0135609d1a9a5ea447986b5ab
+      - token X1cf5a6fakef13d0135609d1a9a5ea447986b5ab
   response:
     status:
       code: 200

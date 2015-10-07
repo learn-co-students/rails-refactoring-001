@@ -1,8 +1,4 @@
----
-tags: rails, refactoring, separation or concerns, DRY, intermediate
-language: ruby
-resources: 1
----
+
 
 # Rails Refactoring
 

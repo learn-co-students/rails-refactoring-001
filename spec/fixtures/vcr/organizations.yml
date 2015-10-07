@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/user/orgs
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Authorization:
+      - token e1cf5a63ca1f13d0135609d1a9a5ea447986b5ab
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 07 Oct 2015 20:30:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1973'
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4999'
+      X-Ratelimit-Reset:
+      - '1444253433'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Etag:
+      - '"a63a7f428a07d89a6dd6bef21953ab53"'
+      X-Oauth-Scopes:
+      - read:org, repo, user
+      X-Accepted-Oauth-Scopes:
+      - admin:org, read:org, repo, user, write:org
+      X-Oauth-Client-Id:
+      - e9f3487f50973feed751
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 6C29131C:17689:2F45E38:561580E9
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - dc1ce2bfb41810a06c705e83b388572d
+    body:
+      encoding: UTF-8
+      string: '[{"login":"flatiron-school","id":2180076,"url":"https://api.github.com/orgs/flatiron-school","repos_url":"https://api.github.com/orgs/flatiron-school/repos","events_url":"https://api.github.com/orgs/flatiron-school/events","members_url":"https://api.github.com/orgs/flatiron-school/members{/member}","public_members_url":"https://api.github.com/orgs/flatiron-school/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/2180076?v=3","description":""},{"login":"flatiron-labs","id":6616956,"url":"https://api.github.com/orgs/flatiron-labs","repos_url":"https://api.github.com/orgs/flatiron-labs/repos","events_url":"https://api.github.com/orgs/flatiron-labs/events","members_url":"https://api.github.com/orgs/flatiron-labs/members{/member}","public_members_url":"https://api.github.com/orgs/flatiron-labs/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/6616956?v=3","description":"Engineering
+        arm of Flatiron School"},{"login":"DEV-learn-co-students","id":8825410,"url":"https://api.github.com/orgs/DEV-learn-co-students","repos_url":"https://api.github.com/orgs/DEV-learn-co-students/repos","events_url":"https://api.github.com/orgs/DEV-learn-co-students/events","members_url":"https://api.github.com/orgs/DEV-learn-co-students/members{/member}","public_members_url":"https://api.github.com/orgs/DEV-learn-co-students/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/8825410?v=3","description":null},{"login":"learn-co-students","id":8825476,"url":"https://api.github.com/orgs/learn-co-students","repos_url":"https://api.github.com/orgs/learn-co-students/repos","events_url":"https://api.github.com/orgs/learn-co-students/events","members_url":"https://api.github.com/orgs/learn-co-students/members{/member}","public_members_url":"https://api.github.com/orgs/learn-co-students/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/8825476?v=3","description":""}]'
+    http_version: 
+  recorded_at: Wed, 07 Oct 2015 20:30:33 GMT
+recorded_with: VCR 2.9.3

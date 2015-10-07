@@ -1,9 +1,9 @@
 class GithubConnection
   attr_reader :orgs, :repos, :issues, :username, :token
 
-  def initialize(github_data)
-    @username = github_data["username"]
-    @token = github_data["token"]
+  def initialize(user)
+    @username = user.username
+    @token = user.token
   end
 
   def get_organizations
@@ -20,7 +20,7 @@ class GithubConnection
 
   def make_request(url, header)
     request = Typhoeus::Request.new(url, header)
-    response = request.run
+    request.run
   end
 
   def json_parse(url, key = nil)

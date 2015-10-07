@@ -12,6 +12,6 @@ class ReposController < ApplicationController
 
   private
   def github_connection
-    @github = GithubConnection.new(session['github'])
+    @github = GithubConnection.new(current_user)
   end
 end

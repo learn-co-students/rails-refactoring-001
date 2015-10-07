@@ -2,7 +2,7 @@ class OrganizationsController < ApplicationController
   before_action :github_connection, only: [:index, :show]
 
   def index
-    @username = @github.username
+    @username = current_user.username
     @organizations = @github.get_organizations
   end
 
@@ -12,6 +12,6 @@ class OrganizationsController < ApplicationController
 
   private
   def github_connection
-    @github = GithubConnection.new(session['github'])
+    @github = GithubConnection.new(current_user)
   end
 end

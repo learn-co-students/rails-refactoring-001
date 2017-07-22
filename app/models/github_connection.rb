@@ -1,5 +1,7 @@
 class GithubConnection
   attr_reader :username, :token, :orgs, :repos, :issues
+
+  include ConnectionsHelper
   
   def initialize(auth_data)
     @username = auth_data["username"]
@@ -8,10 +10,7 @@ class GithubConnection
 
   # GET request to get user's organizations; method called on instance in the organizations controller
   def get_organizations
-    request = Typhoeus::Request.new(
-      "https://api.github.com/user/orgs",
-      headers: {Authorization: "token #{token}"}
-    )
+    request = set_request(nil, nil, @token)
     response = request.run
     orgs = JSON.parse(response.body).map do |org| 
       org["login"]
